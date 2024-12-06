@@ -1,0 +1,14 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "ros2workshop/src/myrobot_nav/myrobot_nav/",
+            "color": "foldercolorizer.color_006699"
+        }
+    ],
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}
