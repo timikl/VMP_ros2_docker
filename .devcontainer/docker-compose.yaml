@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  ros2_container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vmp_ros2_container
+    environment:
+      DISPLAY: ${DISPLAY}
+      ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST
+      ROS_DOMAIN_ID: "42"
+      ROS_DISTRO: jazzy
+      QT_X11_NO_MITSHM: "1"
+      XAUTHORITY: /tmp/docker.xauth
+      TERM: xterm-256color
+    network_mode: host
+    tmpfs:
+      - /tmp
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:consistent
+      - /dev/dri:/dev/dri:consistent
+      - ${PWD}:/root/VMP_ros2_docker
+      - ${HOME}/.ssh:/root/.ssh:consistent
+    privileged: true
+    command: sh ./.devcontainer/postCreate.sh
